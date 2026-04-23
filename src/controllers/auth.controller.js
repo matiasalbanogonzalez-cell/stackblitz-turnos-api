@@ -1,11 +1,19 @@
 import User from "../models/User.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 // REGISTRO
 export const register = async (req, res) => {
   try {
     const { nombre, email, password } = req.body;
+
+    if (!nombre || !email || !password) {
+      return res.status(400).json({ message: "Todos los campos son requeridos" });
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({ message: "La contraseña debe tener al menos 6 caracteres" });
+    }
 
     // verificar si ya existe
     const userExist = await User.findOne({ email });
@@ -54,7 +62,7 @@ export const login = async (req, res) => {
         id: user._id,
         role: user.role
       },
-      "secreto123", // luego usar .env
+      process.env.JWT_SECRET,
       {
         expiresIn: "1h"
       }
