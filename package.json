@@ -8,16 +8,18 @@
     "test": "jest"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^8.0.3",
-    "jsonwebtoken": "^9.0.2",
     "bcryptjs": "^2.4.3",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3"
   },
   "jest": {
     "preset": "default",
     "testEnvironment": "node",
-    "extensionsToTreatAsEsm": [".js"],
+    "extensionsToTreatAsEsm": [
+      ".js"
+    ],
     "globals": {
       "ts-jest": {
         "useESM": true
@@ -26,7 +28,6 @@
     "transform": {}
   },
   "devDependencies": {
-    "jest": "^29.7.0",
     "supertest": "^6.3.3"
   }
 }
