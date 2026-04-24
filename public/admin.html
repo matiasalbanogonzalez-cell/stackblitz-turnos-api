@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Turnos Médicos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Panel de Administración</h1>
+        <button onclick="logout()">Cerrar Sesión</button>
+
+        <div class="filters">
+            <input type="text" id="filterEspecialidad" placeholder="Especialidad">
+            <input type="text" id="filterProfesional" placeholder="Profesional">
+            <select id="filterEstado">
+                <option value="">Todos los estados</option>
+                <option value="pendiente">Pendiente</option>
+                <option value="confirmado">Confirmado</option>
+                <option value="cancelado">Cancelado</option>
+            </select>
+            <button onclick="loadTurnos()">Filtrar</button>
+        </div>
+
+        <div id="turnosList"></div>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Turnos Médicos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard de Turnos</h1>
+        <button onclick="logout()">Cerrar Sesión</button>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('crear')">Crear Turno</button>
+            <button class="tab-button" onclick="showTab('historial')">Mi Historial</button>
+        </div>
+
+        <div id="crear" class="tab-content active">
+            <form id="turnoForm">
+                <input type="date" id="fecha" required>
+                <input type="time" id="hora" required>
+                <input type="text" id="profesional" placeholder="Profesional" required>
+                <input type="text" id="especialidad" placeholder="Especialidad" required>
+                <textarea id="notas" placeholder="Notas"></textarea>
+                <button type="submit">Crear Turno</button>
+            </form>
+        </div>
+
+        <div id="historial" class="tab-content">
+            <div id="turnosList"></div>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
